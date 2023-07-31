@@ -1,0 +1,24 @@
+user: TextField[id=loginUserName, styleClass=text-input text-field] successfully logged in at: 2023-07-29 18:28:46.2328136
+user: TextField[id=loginUserName, styleClass=text-input text-field] failed login attempt at: 2023-07-29 18:29:10.6571251
+user: 1 successfully logged in at: 2023-07-29 18:30:55.8097255
+user: 2 successfully logged in at: 2023-07-29 18:31:58.5728492
+user: test successfully logged in at: 2023-07-29 18:33:16.4195403
+user: test successfully logged in at: 2023-07-30 09:14:10.7268433
+user: test successfully logged in at: 2023-07-30 09:15:09.9073979
+user: test successfully logged in at: 2023-07-30 09:17:36.5914117
+user: test successfully logged in at: 2023-07-30 09:20:34.2805993
+user: test successfully logged in at: 2023-07-30 09:20:48.6483746
+user: test successfully logged in at: 2023-07-30 09:23:19.9844684
+user: test successfully logged in at: 2023-07-30 09:25:11.8738879
+user: test successfully logged in at: 2023-07-30 09:26:08.0423151
+user: test successfully logged in at: 2023-07-30 09:27:12.1420819
+user: test successfully logged in at: 2023-07-30 09:27:32.3119364
+user: test successfully logged in at: 2023-07-30 09:47:01.5728509
+user: test successfully logged in at: 2023-07-30 09:48:06.9280366
+user: test successfully logged in at: 2023-07-30 09:48:18.5298651
+user: test successfully logged in at: 2023-07-30 09:59:41.9627614
+user: test successfully logged in at: 2023-07-30 10:03:09.1917196
+user: test successfully logged in at: 2023-07-30 10:03:58.1201301
+user: test successfully logged in at: 2023-07-30 10:04:42.5307546
+user: test failed login attempt at: 2023-07-30 17:01:09.1722887
+user: test successfully logged in at: 2023-07-30 17:01:17.6344063

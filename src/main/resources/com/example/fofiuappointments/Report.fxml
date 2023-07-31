@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="559.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
+    <children>
+        <TableView fx:id="customerScheduleTable" layoutX="15.0" layoutY="65.0" prefHeight="176.0" prefWidth="842.0">
+            <columns>
+                <TableColumn fx:id="reportAppointmentID" text="Appointment ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Appointment_ID" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsTitle" text="Title">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Title" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsType" text="Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Type" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsDescription" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsLocation" text="Location">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Location" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsStartDateTime" text="Start Date &amp; Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Start" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsEndDateTime" text="End Date &amp; Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="End" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsCustomerName" text="Customer Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Customer_Name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reportsCustomerID" text="Customer ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Customer_ID" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <ChoiceBox fx:id="reportsSelectCustomer" layoutX="859.0" layoutY="141.0" onAction="#changeSelection" prefWidth="150.0" />
+        <Label layoutX="334.0" layoutY="21.0" text="Customer Schedule">
+            <font>
+                <Font name="Times New Roman Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="885.0" layoutY="118.0" text="Select Customer">
+            <font>
+                <Font name="Times New Roman Bold" size="14.0" />
+            </font>
+        </Label>
+        <TableView fx:id="monthTypeTable" layoutX="44.0" layoutY="280.0" prefHeight="200.0" prefWidth="360.0">
+            <columns>
+                <TableColumn fx:id="month" text="Month">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="month" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="type" text="Type">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="type" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="total" text="Total">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="total" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Label layoutX="15.0" layoutY="247.0" text="Total Appointments By Month and Type">
+            <font>
+                <Font name="Times New Roman Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="527.0" layoutY="247.0" text="Total Appointments Per Customer">
+            <font>
+                <Font name="Times New Roman Bold" size="24.0" />
+            </font>
+        </Label>
+        <TableView fx:id="totalAppointmentTable" layoutX="552.0" layoutY="280.0" prefHeight="200.0" prefWidth="306.0">
+            <columns>
+                <TableColumn fx:id="customer_ID" text="Customer ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="customer_ID" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="customer_Name" text="Customer Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="customer_Name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="amount" text="Amount">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="amount" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

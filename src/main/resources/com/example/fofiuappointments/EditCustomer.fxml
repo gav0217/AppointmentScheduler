@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditCustomer">
+   <children>
+      <Label layoutX="189.0" layoutY="14.0" text="Edit Customer">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <HBox layoutX="4.0" layoutY="54.0" prefHeight="261.0" prefWidth="522.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="235.0" prefWidth="156.0">
+               <children>
+                  <Label text="Customer ID:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Customer Name:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Street Address">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Postal Code">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Phone:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <Label text="Country:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+                  <Label text="State/Province:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="247.0" prefWidth="285.0">
+               <children>
+                  <TextField fx:id="editCustomerCustomerID" editable="false" prefHeight="26.0" prefWidth="285.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="editCustomerName">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="editCustomerStreet">
+                     <VBox.margin>
+                        <Insets top="12.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="editCustomerPostal">
+                     <VBox.margin>
+                        <Insets top="14.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="editCustomerPhone">
+                     <VBox.margin>
+                        <Insets top="16.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="editCustomerCountry" onAction="#changeSelection" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="editCustomerStateProvince" onMouseClicked="#onStateClicked" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="347.0" layoutY="315.0" prefHeight="45.0" prefWidth="103.0">
+         <children>
+            <Button fx:id="editCustomerCancelButton" mnemonicParsing="false" onAction="#editCustomerCancelButtton" text="Cancel">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="editCustomerSaveButton" mnemonicParsing="false" onAction="#editCustomerSaveButton" text="Save">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

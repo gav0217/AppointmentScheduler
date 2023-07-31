@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAppointment">
+   <children>
+      <Label layoutX="207.0" layoutY="14.0" text="Edit Appointment">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <HBox layoutX="-7.0" layoutY="49.0" prefHeight="303.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="302.0" prefWidth="170.0">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="105.0" text="Appointment ID:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Customer:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Title:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Type:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Location:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Start Date and Time:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="End Date and Time:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Description:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="User ID:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="128.0" layoutY="258.0" text="Contact:">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="303.0" prefWidth="341.0">
+               <children>
+                  <TextField fx:id="editAppointmentAppointmentID" editable="false">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="editAppointmentCustomerName" onMouseClicked="#editAppointmentCustomer" prefHeight="25.0" prefWidth="296.0">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="editAppointmentTitle">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="editAppointmentType">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="editAppointmentLocation">
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="26.0" prefWidth="294.0">
+                     <children>
+                        <DatePicker fx:id="editAppointmentStartDate">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <ComboBox fx:id="editAppointmentStartTime" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="27.0" prefWidth="294.0">
+                     <children>
+                        <DatePicker fx:id="editAppointmentEndDate">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <ComboBox fx:id="editAppointmentEndTime" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="editAppointmentDescription">
+                     <VBox.margin>
+                        <Insets top="7.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </TextField>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="editAppointmentUserID" prefWidth="150.0">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children></HBox>
+                  <ComboBox fx:id="editAppointmentContact" prefWidth="150.0" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="399.0" layoutY="362.0" prefHeight="38.0" prefWidth="187.0">
+         <children>
+            <Button fx:id="cancelEditAppointment" mnemonicParsing="false" onAction="#editAppointmentCancelButton" text="Cancel">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="saveEditAppointment" mnemonicParsing="false" onAction="#editAppointmentSaveButton" text="Save">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

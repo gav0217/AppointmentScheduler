@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginMenuController">
+    <children>
+        <Label fx:id="labelLogin" alignment="TOP_RIGHT" layoutX="205.0" layoutY="39.0" text="Login">
+            <font>
+                <Font name="Times New Roman Bold" size="36.0" />
+            </font>
+        </Label>
+        <TextField fx:id="loginUserName" layoutX="250.0" layoutY="117.0" promptText="Username">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="loginPassword" layoutX="250.0" layoutY="159.0" promptText="Password">
+            <font>
+                <Font name="Times New Roman" size="12.0" />
+            </font>
+        </PasswordField>
+        <Button fx:id="loginButton" layoutX="227.0" layoutY="198.0" mnemonicParsing="false" onAction="#loginButton" text="Login">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+        </Button>
+        <Label fx:id="labelUserName" alignment="TOP_RIGHT" layoutX="90.0" layoutY="120.0" prefHeight="16.0" prefWidth="127.0" text="Username:">
+            <font>
+                <Font name="Times New Roman Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="labelPassword" layoutX="154.0" layoutY="162.0" text="Password:">
+            <font>
+                <Font name="Times New Roman Bold" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="locationDisplay" editable="false" layoutX="53.0" layoutY="262.0" />
+        <Label fx:id="labelLocation" layoutX="101.0" layoutY="235.0" text="Location">
+            <font>
+                <Font name="Times New Roman Bold" size="14.0" />
+            </font>
+        </Label>
+      <Button fx:id="loginExitButton" layoutX="383.0" layoutY="262.0" mnemonicParsing="false" onAction="#loginExitButton" text="Exit" />
+    </children>
+</AnchorPane>
