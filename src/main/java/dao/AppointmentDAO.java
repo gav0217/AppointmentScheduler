@@ -16,15 +16,37 @@ import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * This is the Appointment DAO class. This is the interface for the implementation of the appointment class.
+ *
+ * @author Gavril Fofiu
+ */
 
 public class AppointmentDAO {
+/**
+ * This is get all appointments method. This method returns all the appointments from the database and
+ * adds them to the Appointment Observable List.
+ *
+ * @return all appointments list.
+ * @throws SQLException
+ */
 
 public static ObservableList<Appointment> getAllAppointments() throws SQLException {
     return getAllAppointments(null, null);
 }
-
+/**
+ * This method formats the date.  Sets it in SimpleDateFormat.
+ */
 private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+/**
+ * This is a get appointment method.  This method searchs the database for appointments between a specific date range.
+ *
+ * @param start the desired start date range.
+ * @param end the desired end date range.
+ * @return the selected rows from the database.
+ * @throws SQLException
+ */
 public static ObservableList<Appointment> getAllAppointments(Date start, Date end) throws SQLException {
     ObservableList<Appointment> appointmentsObservableList = FXCollections.observableArrayList();
     String sql = "SELECT * from appointments";
@@ -52,7 +74,13 @@ public static ObservableList<Appointment> getAllAppointments(Date start, Date en
     return appointmentsObservableList;
 }
 
-
+/**
+ * This method is an add appointment method. This method adds new appointments to the database.
+ * It used the appointment model to add required columns to the database.
+ *
+ * @param model is the appointment model.
+ * @throws SQLException
+ */
 public static void AddAppointment(Appointment model) throws SQLException {
     String insertSQL = "INSERT INTO appointments (Title, Description, Location, Type, Start, End, Create_Date, Created_By, Last_Update, Last_Updated_By, Customer_ID, User_ID, Contact_ID)" +
                                " VALUES (?, ?, ?, ?, ?, ?, NOW(), '" + Utils.loginUser + "', NOW(),  '" + Utils.loginUser + "', ?, ?, ?)";
@@ -84,7 +112,12 @@ public static void AddAppointment(Appointment model) throws SQLException {
     }
 
 }
-
+/**
+ * This is a delete appointment method. This method deletes an appointment from the database.
+ * It deletes by the appointment ID.
+ *
+ * @param app is an appointment model.
+ */
 public static void DeleteAppointment(Appointment app) {
     try (Connection connection = JDBC.startConnection();
          PreparedStatement preparedStatement = connection.prepareStatement("delete from appointments where Appointment_ID = " + app.getAppointment_ID())) {
@@ -96,6 +129,11 @@ public static void DeleteAppointment(Appointment app) {
 
 private static ZoneId zoneId = ZoneId.systemDefault();
 
+/**
+ * This the modify appointment method. It updates the appointments based on the appointment model.
+ *
+ * @param model is a model of an appointment.
+ */
 public static void ModifyAppoinment(Appointment model) {
     String updateSQL = "Update appointments set Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Last_Update = NOW(), " +
                                "Last_Updated_By = '" + Utils.loginUser + "', Customer_ID = ?, User_ID = ?, Contact_ID = ? Where Appointment_ID = ?";
@@ -126,11 +164,18 @@ public static void ModifyAppoinment(Appointment model) {
     }
 }
 
+/**
+ * This method gets the next appointment. It gets the next appointment within the next 15 minutes.
+ *
+ * @param timeNow the current time.
+ * @param User_ID the logged user.
+ * @return the appointment information for the appointment within 15 minutes.
+ * @throws SQLException
+ */
 public static Appointment getNextAppointment(Date timeNow, int User_ID) throws SQLException {
     Appointment appointment = new Appointment();
     Calendar cal = Calendar.getInstance();
     cal.setTime(timeNow);
-    //Set to 45 for testing.... needs to be 15.
     cal.add(Calendar.MINUTE, 15);
     String sql = "select * from appointments where User_ID = " + String.valueOf(User_ID) + " AND Start > '" + dateFormat.format(timeNow) + "' AND Start < '" + dateFormat.format(cal.getTime()) + "'";
 
@@ -145,6 +190,16 @@ public static Appointment getNextAppointment(Date timeNow, int User_ID) throws S
 
     return appointment;
 }
+
+/**
+ * This method checks for overlaps.  This method checks if there is an overlap in new or updated appointment.
+ *
+ * @param start start times of appointments.
+ * @param end end times of appointments.
+ * @param id the ID of the appointments.
+ * @return an error message for the overlap.
+ * @throws SQLException
+ */
 
 public static boolean isOverlap(LocalDateTime start, LocalDateTime end, int id) throws SQLException {
 
@@ -170,7 +225,13 @@ public static boolean isOverlap(LocalDateTime start, LocalDateTime end, int id) 
     return isOverlap;
 }
 
-
+/**
+ * This method gets the next ID for appointments. The method checks the database for the last appointment,
+ * and returns the appointment ID in the add appointment window.
+ *
+ * @return the appointment ID for new appointment.
+ * @throws SQLException
+ */
 public static int getNextAppointmentId() throws SQLException {
     int max = 1;
     try {

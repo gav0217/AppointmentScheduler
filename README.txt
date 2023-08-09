@@ -6,7 +6,7 @@ The purpose of this application is to schedule appointments for different custom
 It comes with two included users, a test user and a admin user.
 
 Author: Gavril Fofiu
-Version:
+Version:1.0
 Date: 08/02/2023
 Built with IntelliJ Idea 2023.2 (Ultimate Edition)
 JDK: JAVA 17 Oracle OpenJDK 17.0.6

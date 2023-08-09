@@ -10,6 +10,9 @@ import java.io.IOException;
 
 /**
  * This is the class that creates the Scheduler Application.
+ *
+ * @author Gavril Fofiu.
+ * @version 1.0
  */
 public class AppointmentScheduler extends Application {
 

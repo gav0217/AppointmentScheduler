@@ -126,7 +126,7 @@
                         <Insets top="12.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <ComboBox fx:id="addCustomerState" onMouseClicked="#onStateClicked" prefWidth="150.0">
+                  <ComboBox fx:id="addCustomerState" prefWidth="150.0">
                      <VBox.margin>
                         <Insets top="12.0" />
                      </VBox.margin>

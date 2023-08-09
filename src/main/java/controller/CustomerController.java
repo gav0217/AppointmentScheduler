@@ -22,15 +22,39 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * This is the customer controller class.  This tab is loaded when the user selects the customer's tab.
+ * This class loads a table view with all the current customers. It also has buttons to add, delete, and modify
+ * customers.
+ *
+ * @author Gavril Fofiu
+ */
 public class CustomerController implements Initializable {
-
+/**
+ * This is a tableview for customers.
+ */
 @FXML
 public TableView customerTable;
+/**
+ * This is a button to delete customers.
+ */
 public Button customerDeleteButton;
+/**
+ * This is a button to modify customers.
+ */
 public Button customerModifyButton;
+/**
+ * This is a button to add new customers.
+ */
 public Button customerAddButton;
 
-
+/**
+ * This is the main initialize method for the class. This method loads the customer table view
+ * which lists all the customers.
+ *
+ * @param url
+ * @param resourceBundle
+ */
 @Override
 public void initialize(URL url, ResourceBundle resourceBundle) {
     try {
@@ -40,6 +64,14 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 }
 
+/**
+ * This is the modify customer method.  This method loads and sets the information for the selected customer
+ * in a new window. When the window is closed, it refreshes the customer table view.
+ *
+ * @param mouseEvent when button is mouse clicked.
+ * @throws IOException
+ * @throws SQLException
+ */
 public void customersModify(MouseEvent mouseEvent) throws IOException, SQLException {
     Customer customer = (Customer) customerTable.getSelectionModel().getSelectedItem();
     FXMLLoader loader = new FXMLLoader(AppointmentScheduler.class.getResource("EditCustomer.fxml"));
@@ -49,7 +81,7 @@ public void customersModify(MouseEvent mouseEvent) throws IOException, SQLExcept
     Scene scene = new Scene(root);
     stage.setScene(scene);
 
-    EditCustomer edit =  loader.getController();
+    EditCustomer edit = loader.getController();
     edit.setCustomer(customer);
 
     stage.show();
@@ -64,6 +96,13 @@ public void customersModify(MouseEvent mouseEvent) throws IOException, SQLExcept
     });
 }
 
+/**
+ * This is the add new customer method.  It opens a new window into which the user inputs the new customer information.
+ * Once it is closed, it refreshes the customer table view.
+ *
+ * @throws IOException
+ * @throws SQLException
+ */
 public void mainMenuAddCustomerButton() throws IOException, SQLException {
     FXMLLoader loader = new FXMLLoader(AppointmentScheduler.class.getResource("AddCustomer.fxml"));
     Parent root = loader.load();
@@ -72,7 +111,7 @@ public void mainMenuAddCustomerButton() throws IOException, SQLException {
     Scene scene = new Scene(root);
     stage.setScene(scene);
 
-    AddCustomerController addCust =  loader.getController();
+    AddCustomerController addCust = loader.getController();
 
     addCust.setNewCustomer(CustomerDAO.getNextCustomerId());
 
@@ -88,20 +127,28 @@ public void mainMenuAddCustomerButton() throws IOException, SQLException {
     });
 }
 
+/**
+ * This is the customer delete method.  The method checks if the customer has any appointments and if they do,
+ * it notifies the user that the customer has an appointment.  If the customer has no appointments, it asks the user
+ * to confirm they want to delete the customer, and then it deletes the customer from the database.
+ *
+ * @param mouseEvent when button is mouse clicked.
+ * @throws SQLException
+ */
+
 public void customersDelete(MouseEvent mouseEvent) throws SQLException {
     Customer customer = (Customer) customerTable.getSelectionModel().getSelectedItem();
     boolean haveAppointment = CustomerDAO.checkCustomerAppointment(customer.getCustomer_ID());
 
-    if(haveAppointment) {
-      Alert alert = new Alert(Alert.AlertType.ERROR);
+    if (haveAppointment) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Customer has Appointment!");
         alert.show();
-    }
-    else {
+    } else {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Delete Item");
-        alert.setContentText("Are you sure you want to delete this item?");
+        alert.setHeaderText("Delete Customer");
+        alert.setContentText("Are you sure you want to delete this Customer?");
 
         // Customize the buttons (Optional)
         ButtonType buttonTypeYes = new ButtonType("Yes");

@@ -23,9 +23,8 @@ public static Connection startConnection()
 {
     Connection _connection = null;
     try {
-        Class.forName(driver); // Locate Driver
-        // password = Details.getPassword(); // Assign password
-        _connection = DriverManager.getConnection(jdbcUrl, userName, password); // reference Connection object
+        Class.forName(driver);
+        _connection = DriverManager.getConnection(jdbcUrl, userName, password);
         System.out.println("Connection successful!");
     } catch (ClassNotFoundException e) {
         System.out.println("Error:" + e.getMessage());

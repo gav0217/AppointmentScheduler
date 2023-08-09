@@ -14,8 +14,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
-
+/**
+ * This is the Report DAO class. This is the interface for the implementation of the report class.
+ *
+ * @author Gavril Fofiu
+ */
 public class ReportDAO {
+/**
+ * This method loads the all customers on schedule table view. Loads all the information into the proper
+ * colum.
+ *
+ * @param customerName loads all Customers with appointments.
+ * @return a customer observable list name allCustomerSchedule.
+ * @throws SQLException
+ */
 public static ObservableList<CustomerSchedule> getAllCustomerSchedule(String customerName) throws SQLException {
     ObservableList<CustomerSchedule> customerScheduleObservableList = FXCollections.observableArrayList();
     String query =
@@ -47,6 +59,14 @@ public static ObservableList<CustomerSchedule> getAllCustomerSchedule(String cus
     return customerScheduleObservableList;
 }
 private static ZoneId zoneId = ZoneId.systemDefault();
+
+/**
+ * This is a get method. Gets all the appointments based on the month and type from the database.
+ * Loads it in the observable list AllMonthType.
+ *
+ * @return a list named AllMonthType.
+ * @throws SQLException
+ */
 public static ObservableList<MonthType> getAllMonthType() throws SQLException {
     ObservableList<MonthType> monthTypesObservableList = FXCollections.observableArrayList();
     String query = "Select DATE_FORMAT(CAST(start as DATE), '%m') as month, type, COUNT(*) as total from appointments group by type, month";
@@ -62,6 +82,14 @@ public static ObservableList<MonthType> getAllMonthType() throws SQLException {
 
     return monthTypesObservableList;
 }
+
+/**
+ * This is a get method. This gets the total appointments for each customer from the database.
+ * Loads it in the observable list AllTotalAppointment.
+ *
+ * @return a list AllTotalAppointments.
+ * @throws SQLException
+ */
 public static ObservableList<TotalAppointment> getAllTotalAppointment() throws SQLException {
     ObservableList<TotalAppointment> totalAppointmentsObservableList = FXCollections.observableArrayList();
     String query = "SELECT COUNT(appointments.Customer_ID) as Amount, customers.Customer_Name, customers.Customer_ID from appointments " +
